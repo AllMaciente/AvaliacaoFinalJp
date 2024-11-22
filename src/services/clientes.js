@@ -50,5 +50,27 @@ class ServiceCliente {
     }
     return cliente.destroy();
   }
+  async Login(email, password) {
+    if (!email || !password) {
+      throw new Error("Email ou Senha inválida");
+    }
+
+    const cliente = await ModelCliente.findOne({ where: { email } });
+    if (!cliente) {
+      throw new Error("Email ou Senha inválida");
+    }
+
+    const senhaValida = bcrypt.compare(password, cliente.password);
+    if (!senhaValida) {
+      throw new Error("Email ou Senha inválida");
+    }
+
+    const payload = {
+      id: cliente.id,
+      name: cliente.name,
+    };
+
+    return jwt.sign(payload, "ksszn", { expiresIn: 60 * 60 });
+  }
 }
 module.exports = new ServiceCliente();
