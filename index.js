@@ -3,9 +3,13 @@ const database = require("./src/config/database");
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
+const routerCliente = require("./src/routers/clientes");
+
 const app = express();
 
 app.use(express.json());
+
+app.use("/cliente", routerCliente);
 
 database.db
   .sync({ force: true })
