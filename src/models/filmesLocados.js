@@ -15,10 +15,11 @@ class ModelFilmeLocado {
         type: database.db.Sequelize.INTEGER,
       },
       dataLocacao: {
-        type: database.db.Sequelize.DATE,
+        type: database.db.Sequelize.STRING,
       },
       dataDevolucao: {
-        type: database.db.Sequelize.DATE,
+        type: database.db.Sequelize.STRING,
+        allowNull: true,
       },
     });
   }
