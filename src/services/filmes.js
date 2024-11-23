@@ -10,7 +10,7 @@ class ServiceFilme {
     }
     const filme = await ModelFilme.findByPk(parseInt(id));
     if (!filme) {
-      throw new Error("Cachorro nao encontrado");
+      throw new Error("filme nao encontrado");
     }
     return filme;
   }
@@ -26,7 +26,7 @@ class ServiceFilme {
     }
     const filme = await ModelFilme.findByPk(parseInt(id));
     if (!filme) {
-      throw new Error("Cachorro nao encontrado");
+      throw new Error("filme nao encontrado");
     }
     filme.titulo = titulo || filme.titulo;
     filme.classificacaoIndicativa =
@@ -42,7 +42,7 @@ class ServiceFilme {
     }
     const filme = await ModelFilme.findByPk(parseInt(id));
     if (!filme) {
-      throw new Error("cachorro não encontrada");
+      throw new Error("filme não encontrada");
     }
     return filme.destroy();
   }
