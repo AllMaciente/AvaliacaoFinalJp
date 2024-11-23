@@ -51,7 +51,7 @@ class ControllerCliente {
     try {
       const id = req.params.id;
 
-      await ServiceCliente.DeletePessoa(id);
+      await ServiceCliente.DeleteCliente(id);
       res.status(204).send();
     } catch (error) {
       res.status(500).send({ msg: error.message });

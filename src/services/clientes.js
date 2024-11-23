@@ -35,7 +35,6 @@ class ServiceCliente {
     }
     cliente.name = name || cliente.name;
     cliente.email = email || cliente.email;
-    cliente.password = password || cliente.password;
 
     cliente.save();
     return cliente;

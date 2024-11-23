@@ -7,11 +7,11 @@ const router = express.Router();
 
 router.post("/", auth, ControllerFilme.CreateFilme);
 router.post("/locar", auth, ControllerFilmeLocado.Locar);
-router.post("/devolver", auth, ControllerFilmeLocado.Devolver);
+router.post("/devolver/:id", auth, ControllerFilmeLocado.Devolver);
 
 router.get("/", auth, ControllerFilme.GetFilmes);
 router.get("/:id", auth, ControllerFilme.GetFilmeById);
-router.get("/locado/", auth, ControllerFilmeLocado.GetLocados);
+router.get("/locados/", auth, ControllerFilmeLocado.GetLocados);
 router.get("/locado/:id", auth, ControllerFilmeLocado.GetLocadoById);
 router.get(
   "/locado/cliente/:idCliente",

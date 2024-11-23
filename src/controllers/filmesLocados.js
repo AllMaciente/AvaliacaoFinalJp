@@ -4,7 +4,7 @@ class ControllerFilmeLocado {
   async GetLocados(req, res) {
     try {
       const locados = await ServiceFilmeLocado.GetLocados();
-      res.status(200).send({ msg: locado });
+      res.status(200).send({ msg: locados });
     } catch (error) {
       res.status(500).send({ msg: error.message });
     }
