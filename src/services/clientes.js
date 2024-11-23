@@ -12,7 +12,7 @@ class ServiceCliente {
     if (!id || isNaN(id)) {
       throw new Error("Favor informar id");
     }
-    const cliente = await module;
+    const cliente = await ModelCliente.findByPk(id);
     if (!cliente) {
       throw new Error("cliente nao encontrado");
     }
