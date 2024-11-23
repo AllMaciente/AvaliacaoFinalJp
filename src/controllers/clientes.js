@@ -13,7 +13,7 @@ class ControllerCliente {
   async GetClienteById(req, res) {
     try {
       const id = req.params.id;
-      const cliente = await ServiceCliente.GetCliente(id);
+      const cliente = await ServiceCliente.GetClienteById(id);
       res.send({ msg: cliente });
     } catch (error) {
       res.status(500).send({ msg: error.message });
