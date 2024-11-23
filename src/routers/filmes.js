@@ -1,12 +1,13 @@
 const express = require("express");
 const ControllerFilme = require("../controllers/filmes");
+const auth = require("../middlewares/auth");
 
 const router = express.Router();
 
-router.get("/", ControllerFilme.GetFilmes);
-router.get("/:id", ControllerFilme.GetFilmeById);
-router.post("/", ControllerFilme.CreateFilme);
-router.put("/:id", ControllerFilme.UpdateFilme);
-router.delete("/:id", ControllerFilme.DeleteFilme);
+router.post("/", auth, ControllerFilme.CreateFilme);
+router.get("/", auth, ControllerFilme.GetFilmes);
+router.get("/:id", auth, ControllerFilme.GetFilmeById);
+router.put("/:id", auth, ControllerFilme.UpdateFilme);
+router.delete("/:id", auth, ControllerFilme.DeleteFilme);
 
 module.exports = router;
