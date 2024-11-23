@@ -14,7 +14,7 @@ app.use("/cliente", routerCliente);
 app.use("/filmes", routerFilme);
 
 database.db
-  .sync({ force: true })
+  .sync({ force: process.env.DB_FORCE || false })
   .then((_) => {
     console.info("Banco conectado com sucesso");
     app.listen(PORT, () => {
